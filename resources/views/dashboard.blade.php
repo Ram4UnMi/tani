@@ -47,7 +47,7 @@
                         @foreach ($products as $product)
                             <div class="bg-white rounded-lg shadow-md p-4 cursor-pointer hover:shadow-lg transition-shadow"
                                  onclick="showProductModal({{ json_encode($product) }})">
-                                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
+                                <img src="{{ asset('storage/images/' . $product->image) }}" alt="{{ $product->name }}"
                                      class="w-full h-48 object-cover rounded-lg mb-4">
                                 <h3 class="text-lg font-semibold">{{ $product->name }}</h3>
                                 <p class="text-gray-600">Rp. {{ number_format($product->price, 0, ',', '.') }}</p>
@@ -133,7 +133,7 @@
             
             // Update modal content
             document.getElementById('modalTitle').textContent = product.name;
-            document.getElementById('modalImage').src = '/storage/' + product.image;
+            document.getElementById('modalImage').src = '/storage/images/' + product.image;
             document.getElementById('modalPrice').textContent = 'Rp. ' + new Intl.NumberFormat('id-ID').format(product.price);
             document.getElementById('modalDescription').textContent = product.description || '-';
             document.getElementById('modalAddress').textContent = product.address || '-';

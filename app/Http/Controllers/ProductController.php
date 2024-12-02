@@ -65,8 +65,8 @@ class ProductController extends Controller
         if ($request->hasFile('file-upload')) {
             $file = $request->file('file-upload');
             $filename = time() . '_' . $file->getClientOriginalName();
-            $filePath = $file->storeAs('products', $filename, 'public');
-            $data['image'] = $filePath;
+            $filePath = $file->storeAs('images', $filename, 'public');
+            $data['image'] = $filename;
         }
 
         // Simpan data ke database
@@ -117,8 +117,8 @@ class ProductController extends Controller
         if ($request->hasFile('file-upload')) {
             $file = $request->file('file-upload');
             $filename = time() . '_' . $file->getClientOriginalName();
-            $filePath = $file->storeAs('products', $filename, 'public');
-            $data['image'] = $filePath;
+            $filePath = $file->storeAs('images', $filename, 'public');
+            $data['image'] = $filename;
         }
 
         $product->update($data);
